@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         trim: true,
-        maxLength: 50
+        maxlength: 50
     },
     email: {
         type: String,
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minLength: 6,
+        minlength: 6,
         select: false
     },
     role: {
@@ -32,16 +32,19 @@ const userSchema = new mongoose.Schema({
     }
 }, {
     timestamps: true
-})
+});
 
-userSchema.pre("save", async function (){
-    if(!this.isModified("password")) return;
-    this.password = await bcrypt.hash(this.password, 12)
-})
+// Hash password before saving
+userSchema.pre("save", async function () {
+    if (!this.isModified("password")) return;
 
-userSchema.methods.comparePassword = async function (enteredPassword){
+    this.password = await bcrypt.hash(this.password, 12);
+});
+
+// Compare entered password with hashed password
+userSchema.methods.comparePassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
-}
+};
 
 const userModel = mongoose.model('User', userSchema);
 
