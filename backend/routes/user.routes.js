@@ -18,6 +18,13 @@ router.post('/register', userController.registerUserController)
  */
 router.post('/login', userController.loginUserController)
 
+/**
+ * @route GET /api/auth/logout
+ * @desc Logout a user
+ * @access Public
+ */
+router.get('/logout', userController.logoutUserController)
+
 
 
 export default router;
