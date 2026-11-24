@@ -1,4 +1,4 @@
-const backendOrigin = process.env.BACKEND_ORIGIN || "http://127.0.0.1:3000";
+import { backendOrigin } from "./lib/backend.mjs";
 
 export default {
   async rewrites() {
