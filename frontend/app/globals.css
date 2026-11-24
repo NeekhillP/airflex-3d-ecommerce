@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fafaf7;
+  --color-ink: #191b20;
+  --color-muted: #58606b;
+  --color-cobalt: #1835c7;
+  --color-line: #89909a;
+}
+
+html {
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--color-line) var(--color-paper);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-cobalt);
+  outline-offset: 3px;
+}
+
+button:enabled, a {
+  cursor: pointer;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: end;
+  gap: 2px;
+  transform: skewX(-22deg);
+  color: var(--color-cobalt);
+}
+
+.brand-mark i {
+  width: 6px;
+  height: 11px;
+  background: currentColor;
+}
+
+.brand-mark i:nth-child(2) { height: 17px; }
+.brand-mark i:last-child { height: 23px; }
