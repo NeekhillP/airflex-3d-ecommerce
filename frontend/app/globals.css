@@ -44,3 +44,29 @@ button:enabled, a {
 
 .brand-mark i:nth-child(2) { height: 17px; }
 .brand-mark i:last-child { height: 23px; }
+
+@layer components {
+  .page-title {
+    @apply text-4xl leading-[1.04] font-semibold tracking-[-0.055em] lg:text-5xl;
+  }
+
+  form label {
+    @apply mb-2 block text-sm font-semibold;
+  }
+
+  .auth-input {
+    @apply h-12 w-full rounded-md border border-line bg-white px-3.5 text-base placeholder:text-muted;
+  }
+
+  .auth-input[aria-invalid="true"] {
+    @apply border-red-800;
+  }
+
+  .primary-button {
+    @apply flex min-h-12 w-full items-center justify-between rounded-md bg-ink px-4 font-semibold text-white hover:bg-cobalt active:bg-ink disabled:cursor-wait disabled:bg-muted;
+  }
+
+  .text-link {
+    @apply font-semibold text-ink underline decoration-cobalt decoration-2 underline-offset-4 hover:text-cobalt;
+  }
+}

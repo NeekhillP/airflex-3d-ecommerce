@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default function Home() {
-  return <h1 className="text-5xl font-semibold tracking-tight">Airflex account</h1>;
+  redirect("/login");
 }
